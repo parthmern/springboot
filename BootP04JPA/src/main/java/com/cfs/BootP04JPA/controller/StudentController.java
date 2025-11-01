@@ -28,7 +28,12 @@ public class StudentController {
         return studentRepo.findAll();   // from db
     }
 
-
-
+    @PutMapping                 // ?id=123 ( queryParam)
+    public Student updateStudent(@RequestParam Long id, @RequestBody Student student) {
+        Student stud = studentRepo.findById(id).orElseThrow(()-> new RuntimeException("Student not found"));
+        stud.setName(student.getName());
+        stud.setEmail(student.getEmail());
+        return studentRepo.save(stud);
+    }
 
 }

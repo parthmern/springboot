@@ -23,6 +23,7 @@ public class Student {
         this.email = email;
     }
 
+    // getter setter for all ( generated )
     public Long getId() {
         return id;
     }
